@@ -4,7 +4,7 @@
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    margin-top: 5em;
+    margin-top: 4em;
     /* background-color: salmon; */
     font-family: Roboto;
     width: 100%;
@@ -14,7 +14,7 @@
     color: #363636;
     /* background-color: #FFBCBC; */
     margin: 0px;
-    padding-top: 1em;
+    
 }
 .titleTwo{
     color: #363636;
@@ -29,16 +29,38 @@
 .Search{
     border: 0;
     background: transparent;
-    border-bottom: 2px solid black;
-    font-size: 25px;
-    margin-left: 10px;
+    /* border-bottom: 1px solid gray; */
+    font-size: 17px;
+    margin-left: 5px;
+    width: 13em;
     
 }
 .buscar{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 20px;
+    
 }
-
+.raza{
+    height: 280px;
+    padding: 10px;
+    margin-top: 3em;
+    border-radius: 10px;
+    color: #363636;
+    background: white;
+    width: 245px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+.titleRaza{
+    font-size: 18px;
+    font-family: Roboto;
+    margin: 0;
+}
+.containerSelection{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    font-size: 16px;
+}
 
 
 

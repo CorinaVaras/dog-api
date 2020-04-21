@@ -9,8 +9,6 @@
   display: flex;
   justify-content: space-between;
   background-color: rgba(255,255,255, 0.25);
-  /* background-color: #FFBCBC; */
-  
 }
 .containerLogo {
   display: flex;
@@ -27,5 +25,5 @@
 .links {
   padding-right: 2em;
   font-family: Roboto;
-  font-size: 21px;
+  font-size: 20px;
 }
