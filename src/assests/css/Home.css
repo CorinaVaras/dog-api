@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+
+.container_home{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 5em;
+    /* background-color: salmon; */
+    font-family: Roboto;
+    width: 100%;
+}
+
+.title{
+    padding-left: 3em;
+    color: #363636;
+    margin: 0px;
+    padding-top: 1em;
+}
+.titleTwo{
+    padding-left: 4em;
+    color: #363636;
+    margin: 0px;
+    font-size: 22px;
+    
+}
+
+
+

@@ -1,27 +1,28 @@
-header {
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  background-color: #28a5eb;
   position: relative;
   height: 5rem;
-}
-.nav-links {
-  width: 100%;
-  z-index: 1000;
-  padding-top: 0.625rem;
-}
-
-.nav-links ul {
-  margin: 0;
-  list-style: none;
-  padding: 0;
   display: flex;
+  justify-content: space-between;
 }
-
-.nav-links li {
-  padding: 0.62rem 1.25rem;
-  color: white;
+.containerLogo {
+  display: flex;
+  margin: 5px;
 }
-
-.nav-links li:hover {
+.containerLinks {
+  display: flex;
+  align-items: center;
+}
+.links:hover {
   cursor: pointer;
+  color: #4cd3c2;
+}
+.links {
+  padding-right: 2em;
+  font-family: Roboto;
+  font-size: 21px;
 }

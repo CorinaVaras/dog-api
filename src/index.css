@@ -14,4 +14,7 @@ code {
 
 ul {
   margin-top: 0;
+  display: flex;
+  
+  
 }
