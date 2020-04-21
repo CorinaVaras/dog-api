@@ -1,0 +1,27 @@
+header {
+  width: 100%;
+  background-color: #28a5eb;
+  position: relative;
+  height: 5rem;
+}
+.nav-links {
+  width: 100%;
+  z-index: 1000;
+  padding-top: 0.625rem;
+}
+
+.nav-links ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  padding: 0.62rem 1.25rem;
+  color: white;
+}
+
+.nav-links li:hover {
+  cursor: pointer;
+}
