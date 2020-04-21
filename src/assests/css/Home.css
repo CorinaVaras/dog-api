@@ -11,18 +11,35 @@
 }
 
 .title{
-    padding-left: 3em;
     color: #363636;
+    /* background-color: #FFBCBC; */
     margin: 0px;
     padding-top: 1em;
 }
 .titleTwo{
-    padding-left: 4em;
     color: #363636;
     margin: 0px;
-    font-size: 22px;
+    font-size: 20px;
+}
+.container_form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5em;
+}
+.Search{
+    border: 0;
+    background: transparent;
+    border-bottom: 2px solid black;
+    font-size: 25px;
+    margin-left: 10px;
     
 }
+.buscar{
+    width: 30px;
+    height: 30px;
+}
+
+
 
 
 
