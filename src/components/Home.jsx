@@ -7,7 +7,7 @@ import buscar from "../assests/img/buscar.svg";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [], tags: []};
+    this.state = { data: [], tags: [] };
     this.getData();
   }
 
@@ -32,15 +32,29 @@ class Home extends Component {
       });
   };
 
+  // evento al input checkbox de las
   handleChange = (event) => {
     const value = event.target.name;
-    this.setState(previousState => ({
-      tags: [...previousState.tags, value]
-    }));
 
-    console.log(this.state.tags)
-  }
+    //Verifica si el elemento selecionado existe en el array
+    if (this.state.tags.includes(value)) {
+    //Busca el index del elemento en el array
+      const index = this.state.tags.indexOf(value);
+    //Elimina el elemento en la posicion index
+      this.state.tags.splice(index, 1);
+    } else {
+    //Añade el elemento en caso de que no este
+      this.state.tags.push(value);
+    }
 
+    this.setState({
+      tags: this.state.tags,
+    });
+
+    // setTimeout(()=>{
+    //     console.log(this.state.tags);
+    // },500)
+  };
 
   render() {
     return (
@@ -81,7 +95,12 @@ class Home extends Component {
                     return (
                       <label key={dogs.name} className="containerSelection">
                         <div style={{ display: "flex", flexDirection: "row" }}>
-                          <input onChange={event => this.handleChange(event)} type="checkbox" name={dogs.name}/> {dogs.name}
+                          <input
+                            onChange={(event) => this.handleChange(event)}
+                            type="checkbox"
+                            name={dogs.name}
+                          />{" "}
+                          {dogs.name}
                         </div>
                       </label>
                     );
