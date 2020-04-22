@@ -47,9 +47,21 @@
     border-radius: 10px;
     color: #363636;
     background: white;
-    width: 245px;
+    width: 15em;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
 }
+.sub-raza{
+    height: 280px;
+    padding: 10px;
+    margin-top: 3em;
+    margin-left: auto;
+    border-radius: 10px;
+    color: #363636;
+    background: white;
+    width: 15em;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
 .titleRaza{
     font-size: 18px;
     font-family: Roboto;
