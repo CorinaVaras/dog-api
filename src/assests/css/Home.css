@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
-
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,500&display=swap');
 .container_home{
     display: flex;
     align-items: flex-start;
@@ -14,12 +14,14 @@
     color: #363636;
     /* background-color: #FFBCBC; */
     margin: 0px;
+    font-family: 'Work Sans', sans-serif;
     
 }
 .titleTwo{
     color: #363636;
     margin: 0px;
     font-size: 20px;
+    font-family: Roboto;
 }
 .container_form{
     display: flex;
@@ -68,7 +70,11 @@
     margin: 0;
 }
 
-
+.container-dogs{
+    overflow-y: scroll;
+    height: 12em;
+    margin-top: 10px;
+}
 .containerSelection{
     display: flex;
     flex-direction: column;

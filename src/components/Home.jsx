@@ -7,7 +7,7 @@ import buscar from "../assests/img/buscar.svg";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = { data: [], tags: []};
     this.getData();
   }
 
@@ -17,15 +17,30 @@ class Home extends Component {
         return data.json();
       })
       .then((data) => {
-        var result = Object.keys(data.message).map(function (key) {
-          return { name: key, sub: [data.message[key]] };
+        let razas = Object.keys(data.message).map(function (raza) {
+          let subRazas = Object.values(data.message[raza]).map(function (
+            subRaza
+          ) {
+            return { name: subRaza };
+          });
+          return { name: raza, sub: subRazas };
         });
-      console.log(result);
+
         this.setState({
-          data: result,
+          data: razas,
         });
       });
   };
+
+  handleChange = (event) => {
+    const value = event.target.name;
+    this.setState(previousState => ({
+      tags: [...previousState.tags, value]
+    }));
+
+    console.log(this.state.tags)
+  }
+
 
   render() {
     return (
@@ -61,18 +76,16 @@ class Home extends Component {
                     placeholder="Buscar una raza..."
                   />
                 </form>
-                <div>
-                {this.state.data.map((dogs) => {
-                  return (
-                    
-                    <label key={dogs.name} className="containerSelection">
-                      <div style={{ display: "flex", flexDirection: "row"}}>
-                        <input type="checkbox" /> {dogs.name}
-                      </div>
-                    </label>
-                  );
-                })
-                }
+                <div className="container-dogs">
+                  {this.state.data.map((dogs) => {
+                    return (
+                      <label key={dogs.name} className="containerSelection">
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                          <input onChange={event => this.handleChange(event)} type="checkbox" name={dogs.name}/> {dogs.name}
+                        </div>
+                      </label>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -96,14 +109,17 @@ class Home extends Component {
                     placeholder="Buscar una raza..."
                   />
                 </form>
-                <label className="containerSelection">
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <input type="checkbox" /> Chiguagua
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <input type="checkbox" /> Poodle
-                  </div>
-                </label>
+                <div className="container-dogs">
+                  {this.state.data.map((dogs) =>
+                    dogs.sub.map((subDogs) => (
+                      <label key={subDogs.name} className="containerSelection">
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                          <input type="checkbox" /> {subDogs.name}
+                        </div>
+                      </label>
+                    ))
+                  )}
+                </div>
               </div>
             </div>
           </div>
