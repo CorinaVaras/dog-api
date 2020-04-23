@@ -123,7 +123,7 @@ class Home extends Component {
             {/* CAJA DE LAS RAZAS */}
             <div className='test'>
               <div className="raza">
-                <p className="titleRaza">Raza</p>
+                <p className="titleRaza">Razas</p>
                 <hr />
                 <form style={{display: "flex", alignItems: "center",border: "1px solid gray", padding: 5, marginTop: 5 }}>
                   <img className="buscar" src={buscar} />
@@ -151,7 +151,7 @@ class Home extends Component {
             {/* CAJA DE LA SUB RAZA */}
             <div className='test'>
               <div className="raza">
-                <p className="titleRaza">Sub-Raza</p>
+                <p className="titleRaza">Sub-Razas</p>
                 <hr />
                 <form style={{display: "flex", alignItems: "center",border: "1px solid gray", padding: 5, marginTop: 5 }}>
                   <img className="buscar" src={buscar} />
@@ -159,20 +159,20 @@ class Home extends Component {
                 </form>
 
                 <div className="container-dogs">
-                  {this.state.data.map((dogs) => {
-                    return (
-                      <label key={dogs.name} className="containerSelection">
-                        <div style={{ display: "flex", flexDirection: "row" }}>
-                          <input
-                            onChange={(event) => this.handleChange(event)}
-                            type="checkbox"
-                            name={dogs.name}
-                          />{" "}
-                          {dogs.name}
-                        </div>
-                      </label>
-                    );
-                  })}
+                  {this.state.data.map((dogs) => (
+                    dogs.sub.map(sub => (
+                        <label key={sub.name} className="containerSelection">
+                          <div style={{ display: "flex", flexDirection: "row" }}>
+                            <input
+                              onChange={(event) => this.handleChange(event)}
+                              type="checkbox"
+                              name={sub.name}
+                            />{" "}
+                            {sub.name}
+                          </div>
+                        </label>
+                    ))
+                  ))}
                 </div>
               </div>
             </div>
@@ -184,12 +184,12 @@ class Home extends Component {
                     <div className="card-dogs">
                       {item.img == "B" ? (
                         <img
-                          style={{ width: "100px", height: "95px" }}
+                          style={{ width: "110px", height: "110px" }}
                           src={random}
                         />
                       ) : (
                         <img
-                          style={{ width: "100px", height: "95px" }}
+                          style={{ width: "110px", height: "110px" }}
                           src={item.img}
                         />
                       )}

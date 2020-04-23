@@ -113,7 +113,7 @@
 
 .card-dogs{
     height: 10em;
-    width: 8em;
+    width: 10em;
     display: flex;
     justify-content: center;
     flex-direction: column;
