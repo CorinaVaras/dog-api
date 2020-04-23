@@ -1,14 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
 header {
   width: 100%;
-  background-color: #28a5eb;
+  background-color: #f72e2b;
   position: relative;
+  height: 5em;
+}
+
+.container-logo{
+  margin-left: 3em;
   height: 5em;
 }
 
 .logo {
   width: 6em;
-  height: 5em;
+  height: 4.7em;
 }
 .container-items {
   display: flex;
@@ -60,10 +65,10 @@ header {
 }
 
 .nav-links li {
-  padding: 0.62rem 1.25rem;
   color: white;
-  margin-top: 1.25rem;
-  margin-left: 1.5rem;
+  margin-top: 1.3em;
+  margin-right: 2em;
+  font-size: 20px;
 }
 
 .nav-links li:hover {
@@ -103,13 +108,12 @@ header label:hover {
   section {
     z-index: 1000 !important;
   }
-  .logoMenu {
-    background-color: chartreuse;
-  }
+  
 
   .logo {
     display: none;
   }
+
 
   .navMapIcon {
     display: block;
@@ -135,7 +139,7 @@ header label:hover {
     background-color: white;
     z-index: 1000;
     display: none;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
     margin-top: 7% !important;
   }
 
@@ -158,25 +162,14 @@ header label:hover {
     height: 10em;
   }
   .containerElemt {
-    display: block;
-    display: flex;
-    padding-left: 15px;
-    border-bottom: 1px solid black;
+    padding: 8px;
+    
   }
   .iconElem {
     display: block;
     width: 25px;
   }
-  .containerElemt_ {
-    display: block;
-    display: flex;
-    justify-content: space-between;
-    height: 45px;
-    padding-left: 10px;
-    padding-right: 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid black;
-  }
+  
   .iconElem_ {
     display: block;
     width: 35px;
@@ -232,12 +225,16 @@ section {
   section {
     z-index: 1000 !important;
   }
+  .container-logo{
+   display: unset;
+  }
+
   .logo {
     display: none;
   }
 
   .logoMenu-container {
-    background-color: #28a5eb;
+    background-color: #f72e2b;
     display: flex;
     height: 7em;
   }
@@ -266,9 +263,9 @@ section {
   }
 
   #toggle:checked ~ .nav-links {
-    display: block;
-    margin: 0;
     background-color: #ffff;
     height: 10em;
+    margin: 0 !important;
+    width: 100%;
   }
 }

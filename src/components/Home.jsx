@@ -115,33 +115,21 @@ class Home extends Component {
     return (
       <>
         <NavBar />
+        <div className='container-texto'>
+        <h1 className='title'>Encuentra tu mascota ideal aquí</h1>
+        <p className='titletwo'>La que haga mach con tu personalidad!!!</p>
+        </div>
         <div className="container_home">
-          <div style={{ paddingLeft: "2em" }}>
-            <h1 className="title">Encuentra tu mascota ideal</h1>
-            <div className="titleTwo">
-              <p>La que haga mach con tu personalidad!!!</p>
-            </div>
-            <div style={{ display: "flex", flexDirection: "row" ,flexWrap:"wrap"}}>
-              {/* Caja de Raza */}
+            {/* CAJA DE LAS RAZAS */}
+            <div className='test'>
               <div className="raza">
-                <p className="titleRaza">Raza / Sub-Raza</p>
+                <p className="titleRaza">Raza</p>
                 <hr />
-                <form
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    border: "1px solid gray",
-                    padding: 5,
-                    marginTop: 5,
-                  }}
-                >
+                <form style={{display: "flex", alignItems: "center",border: "1px solid gray", padding: 5, marginTop: 5 }}>
                   <img className="buscar" src={buscar} />
-                  <input
-                    className="Search"
-                    type="search"
-                    placeholder="Buscar una raza..."
-                  />
+                  <input className="Search" type="search" placeholder="Buscar una raza..."/>
                 </form>
+
                 <div className="container-dogs">
                   {this.state.data.map((dogs) => {
                     return (
@@ -159,8 +147,38 @@ class Home extends Component {
                   })}
                 </div>
               </div>
+            </div>
+            {/* CAJA DE LA SUB RAZA */}
+            <div className='test'>
+              <div className="raza">
+                <p className="titleRaza">Sub-Raza</p>
+                <hr />
+                <form style={{display: "flex", alignItems: "center",border: "1px solid gray", padding: 5, marginTop: 5 }}>
+                  <img className="buscar" src={buscar} />
+                  <input className="Search" type="search" placeholder="Buscar una raza..."/>
+                </form>
 
-              <div className="DogsContainer">
+                <div className="container-dogs">
+                  {this.state.data.map((dogs) => {
+                    return (
+                      <label key={dogs.name} className="containerSelection">
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                          <input
+                            onChange={(event) => this.handleChange(event)}
+                            type="checkbox"
+                            name={dogs.name}
+                          />{" "}
+                          {dogs.name}
+                        </div>
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            {/* CAJA DONDE SE MUESTRAN LOS PERROS CON IMAGENES */}
+            <div className='test'>
+            <div className="DogsContainer">
                 {this.state.dataFilter.map((item) => {
                   return (
                     <div className="card-dogs">
@@ -180,12 +198,37 @@ class Home extends Component {
                   );
                 })}
               </div>
-            </div>
+              </div>
+
           </div>
-        </div>
-      </>
+          </>
     );
+
+             
   }
 }
 
 export default Home;
+
+              {/* <div className="DogsContainer">
+                {this.state.dataFilter.map((item) => {
+                  return (
+                    <div className="card-dogs">
+                      {item.img == "B" ? (
+                        <img
+                          style={{ width: "100px", height: "95px" }}
+                          src={random}
+                        />
+                      ) : (
+                        <img
+                          style={{ width: "100px", height: "95px" }}
+                          src={item.img}
+                        />
+                      )}
+                      <p>{item.name}</p>
+                    </div>
+                  );
+                })}
+              </div> */}
+            
+    

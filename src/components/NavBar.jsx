@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../assets/css/NavBar.css";
-import logo from "../assets/img/LOGOdog.png";
+import logo from "../assets/img/logo.svg";
 import menu from "../assets/img/menuIcon.png";
 import { findByLabelText } from "@testing-library/react";
 
@@ -16,8 +16,10 @@ class NavBar extends Component {
         <input type="checkbox" id="toggle" />
         
           <nav className="nav-links">
-    
+            <div className='container-logo'>
             <img className="logo" alt="logoMoov" src={logo} href="#"/>
+            </div>
+    
 
             <div>
             <ul>
@@ -42,18 +44,4 @@ class NavBar extends Component {
 
 export default NavBar;
 
-{
-  /* <header>
-          <nav className="nav-links">
-            <div className="containerLogo">
-              <img style={{ width: 65, height: 65 }} src={logo} />
-            </div>
 
-            <div className="containerLinks">
-              <a className="links">Curiosidades</a>
-              <a className="links">Salud</a>
-              <a className="links">Alimentación</a>
-            </div>
-          </nav>
-        </header> */
-}

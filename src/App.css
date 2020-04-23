@@ -4,7 +4,9 @@
   background-size: cover;
   background-image: repeating-linear-gradient();
 } */
-
+body{
+  background-color: rgb(223, 223, 223);
+}
 
 
 
