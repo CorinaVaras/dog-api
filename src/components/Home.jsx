@@ -3,11 +3,11 @@ import NavBar from "./NavBar";
 import "../App.css";
 import "../assests/css/Home.css";
 import buscar from "../assests/img/buscar.svg";
-
+import logo from "../assests/img/LOGOdog.png";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [], tags: [] };
+    this.state = { data: [], tags: [], dataFilter: [], allData: [] };
     this.getData();
   }
 
@@ -17,7 +17,7 @@ class Home extends Component {
         return data.json();
       })
       .then((data) => {
-        let razas = Object.keys(data.message).map(function (raza) {
+        let result = Object.keys(data.message).map(function (raza) {
           let subRazas = Object.values(data.message[raza]).map(function (
             subRaza
           ) {
@@ -26,8 +26,42 @@ class Home extends Component {
           return { name: raza, sub: subRazas };
         });
 
+        let allDogs = [];
+
+        result.map((item) => {
+          fetch(`https://dog.ceo/api/breed/${item.name}/images`)
+            .then((data) => {
+              return data.json();
+            })
+            .then((data) => {
+              let dog = { name: item.name, img: data.message[0] };
+
+              this.setState((previousState) => ({
+                dataFilter: [...previousState.dataFilter, dog],
+                allData: [...previousState.allData, dog],
+              }));
+            })
+            
+
+          item.sub.map((sub) => {
+            fetch(`https://dog.ceo/api/breed/${sub.name}/images`)
+              .then((data) => {
+                return data.json();
+              })
+              .then((data) => {
+                let subDog = { name: sub.name, img: data.message[0] };
+
+                this.setState((previousState) => ({
+                  dataFilter: [...previousState.dataFilter, subDog],
+                  allData: [...previousState.allData, subDog],
+                }));
+              });
+          });
+        });
+
         this.setState({
-          data: razas,
+          allData: allDogs,
+          data: result,
         });
       });
   };
@@ -38,12 +72,12 @@ class Home extends Component {
 
     //Verifica si el elemento selecionado existe en el array
     if (this.state.tags.includes(value)) {
-    //Busca el index del elemento en el array
+      //Busca el index del elemento en el array
       const index = this.state.tags.indexOf(value);
-    //Elimina el elemento en la posicion index
+      //Elimina el elemento en la posicion index
       this.state.tags.splice(index, 1);
     } else {
-    //Añade el elemento en caso de que no este
+      //Añade el elemento en caso de que no este
       this.state.tags.push(value);
     }
 
@@ -51,9 +85,30 @@ class Home extends Component {
       tags: this.state.tags,
     });
 
+    this.filterData();
+
     // setTimeout(()=>{
     //     console.log(this.state.tags);
     // },500)
+  };
+
+  filterData = () => {
+    let currentAllData = this.state.allData;
+
+    if (this.state.tags.length == 0) {
+
+      this.setState({
+        dataFilter: this.state.allData,
+      });
+    } else {
+      const result = currentAllData.filter((element) => {
+        return this.state.tags.includes(element.name);
+      });
+
+      this.setState({
+        dataFilter: result,
+      });
+    }
   };
 
   render() {
@@ -61,7 +116,7 @@ class Home extends Component {
       <>
         <NavBar />
         <div className="container_home">
-          <div style={{ marginLeft: "2em" }}>
+          <div style={{ paddingLeft: "2em" }}>
             <h1 className="title">Encuentra tu mascota ideal</h1>
             <div className="titleTwo">
               <p>
@@ -108,8 +163,30 @@ class Home extends Component {
                 </div>
               </div>
 
+              <div className="DogsContainer">
+                {this.state.dataFilter.map((item) => {
+                  return (
+                    <div className="card-dogs">
+                      {item.img == "B" ? (
+                        <img
+                          style={{ width: "60px", height: "60px" }}
+                          src={logo}
+                        />
+                      ) : (
+                        <img
+                          style={{ width: "100px", height: "100px" }}
+                          src={item.img}
+                        />
+                      )}
+
+                      <p>{item.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+
               {/* Caja de Sub-Raza */}
-              <div className="sub-raza">
+              {/* <div className="sub-raza">
                 <p className="titleRaza">Sub Raza</p>
                 <hr />
                 <form
@@ -139,7 +216,7 @@ class Home extends Component {
                     ))
                   )}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
