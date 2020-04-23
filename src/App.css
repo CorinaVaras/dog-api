@@ -1,8 +1,9 @@
-html{
+/* body{
   height: 100vh;
-  background-image: url('./assests/img/2.jpg');
+  background-image: url('./assets/img/2.jpg');
   background-size: cover;
-}
+  background-image: repeating-linear-gradient();
+} */
 
 
 

@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+header {
+  width: 100%;
+  background-color: #28a5eb;
+  position: relative;
+  height: 5em;
+}
+
+.logo {
+  width: 6em;
+  height: 5em;
+}
+.container-items {
+  display: flex;
+  flex-direction: row;
+  background-color: chartreuse;
+}
+
+.containerElemt {
+  display: flex;
+  padding-left: 15px;
+}
+.iconElem {
+  display: none;
+  width: 25px;
+}
+.containerElemt_ {
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  padding-left: 10px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+}
+.iconElem_ {
+  display: none;
+  width: 35px;
+}
+.iconElem__ {
+  display: none;
+  width: 30px;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.nav-links {
+  height: 6em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-links ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  padding: 0.62rem 1.25rem;
+  color: white;
+  margin-top: 1.25rem;
+  margin-left: 1.5rem;
+}
+
+.nav-links li:hover {
+  cursor: pointer;
+}
+
+header label {
+  display: none;
+  margin: 0 40px 0 0;
+  width: 1.875rem;
+  height: 1.875rem;
+  padding: 0.625rem;
+}
+
+header label:hover {
+  cursor: pointer;
+}
+
+.navMapIcon {
+  display: none;
+}
+
+#toggle {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  article,
+  aside,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  nav,
+  section {
+    z-index: 1000 !important;
+  }
+  .logoMenu {
+    background-color: chartreuse;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .navMapIcon {
+    display: block;
+    position: absolute;
+    left: 85%;
+    top: 40%;
+  }
+
+  header {
+    height: 6.25rem;
+  }
+
+  header label {
+    display: block;
+    cursor: pointer;
+    padding-top: 2.3rem;
+    padding-left: 1.25rem;
+  }
+
+  .nav-links {
+    width: 30%;
+    color: black;
+    background-color: white;
+    z-index: 1000;
+    display: none;
+    border: 1px solid #333;
+    margin-top: 7% !important;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    margin-top: 4rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  .nav-links li {
+    color: black;
+    margin: 0;
+  }
+
+  #toggle:checked ~ .nav-links {
+    display: block;
+    margin: 0;
+    background-color: #ffff;
+    height: 10em;
+  }
+  .containerElemt {
+    display: block;
+    display: flex;
+    padding-left: 15px;
+    border-bottom: 1px solid black;
+  }
+  .iconElem {
+    display: block;
+    width: 25px;
+  }
+  .containerElemt_ {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+  }
+  .iconElem_ {
+    display: block;
+    width: 35px;
+  }
+  .iconElem__ {
+    display: block;
+    width: 30px;
+  }
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  z-index: 1000 !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .logo {
+    display: none;
+  }
+
+  article,
+  aside,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  nav,
+  section {
+    z-index: 1000 !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  article,
+  aside,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  nav,
+  section {
+    z-index: 1000 !important;
+  }
+  .logo {
+    display: none;
+  }
+
+  .logoMenu-container {
+    background-color: #28a5eb;
+    display: flex;
+    height: 7em;
+  }
+
+  .navMapIcon {
+    position: absolute;
+    top: 35%;
+  }
+
+  nav {
+    z-index: 1000 !important;
+  }
+
+  .nav-links {
+    width: 50%;
+    z-index: 1000;
+    display: none;
+    margin-top: 13% !important;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    margin-top: 4rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  #toggle:checked ~ .nav-links {
+    display: block;
+    margin: 0;
+    background-color: #ffff;
+    height: 10em;
+  }
+}
