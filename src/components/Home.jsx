@@ -7,7 +7,12 @@ import random from "../assets/img/random.jpg";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [], tags: [], dataFilter: [], allData: [] };
+    this.state = { 
+      data: [], 
+      tags: [], 
+      dataFilter: [], 
+      allData: [] 
+    };
     this.getData();
   }
 
@@ -18,13 +23,13 @@ class Home extends Component {
       })
       .then((data) => {
         let result = Object.keys(data.message).map(function (raza) {
-          let subRazas = Object.values(data.message[raza]).map(function (
-            subRaza
-          ) {
+          let subRazas = Object.values(data.message[raza]).map(function (subRaza) {
             return { name: subRaza };
           });
           return { name: raza, sub: subRazas };
         });
+
+        // console.log(result);
 
         let allDogs = [];
 
@@ -40,6 +45,7 @@ class Home extends Component {
                 dataFilter: [...previousState.dataFilter, dog],
                 allData: [...previousState.allData, dog],
               }));
+              
             })
             
 
@@ -63,6 +69,8 @@ class Home extends Component {
           allData: allDogs,
           data: result,
         });
+
+        console.log('>>>' + JSON.stringify(this.state.allData))
       });
   };
 

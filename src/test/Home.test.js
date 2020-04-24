@@ -11,4 +11,4 @@ describe('Componente Home', () => {
     test('Render del título', () => {
         expect(home.find('.title').text()).toEqual('Encuentra tu mascota ideal aquí')
     })
-})
+});
