@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import {configure, shallow} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import {shallow} from 'enzyme';
+
 import Home from '../components/Home';
 
 describe('Componente Home', () => {
@@ -8,4 +8,7 @@ describe('Componente Home', () => {
     test('el component home existe', () => {
         expect(home.exists()).toBeTruthy();
     }) 
+    test('Render del título', () => {
+        expect(home.find('.title').text()).toEqual('Encuentra tu mascota ideal aquí')
+    })
 })
