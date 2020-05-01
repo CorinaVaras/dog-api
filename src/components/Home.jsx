@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
-import "../App.css";
 import "../assets/css/Home.css";
 import buscar from "../assets/img/buscar.svg";
 import random from "../assets/img/random.jpg";
@@ -25,16 +24,16 @@ class Home extends Component {
       })
       .then((data) => {
         let result = Object.keys(data.message).map(function (raza) {
-          let subRazas = Object.values(data.message[raza]).map(function (
-            subRaza
-          ) {
+          let subRazas = Object.values(data.message[raza]).map(function (subRaza) {
             return { name: subRaza };
           });
           return { name: raza, sub: subRazas };
         });
+        // result es mi json arreglado con clave y valor
+        // console.log(JSON.stringify(result));
 
-        let allDogs = [];
-
+        
+        // Buscar img por cada raza y sub raza
         result.map((item) => {
           fetch(`https://dog.ceo/api/breed/${item.name}/images`)
             .then((data) => {
@@ -44,7 +43,6 @@ class Home extends Component {
               let dog = { name: item.name, img: data.message[0] };
 
               this.setState((previousState) => ({
-                dataFilter: [...previousState.dataFilter, dog],
                 allData: [...previousState.allData, dog],
               }));
             });
@@ -58,19 +56,22 @@ class Home extends Component {
                 let subDog = { name: sub.name, img: data.message[0] };
 
                 this.setState((previousState) => ({
-                  dataFilter: [...previousState.dataFilter, subDog],
                   allData: [...previousState.allData, subDog],
                 }));
               });
           });
         });
 
+        // setTimeout( () => {
+        //   console.log(JSON.stringify(this.state.allData))
+        // }, 3000) 
+
+        
+
         this.setState({
-          allData: allDogs,
           data: result,
         });
 
-        console.log(">>>" + JSON.stringify(this.state.allData));
       });
   };
 
@@ -99,11 +100,13 @@ class Home extends Component {
   filterData = () => {
     let currentAllData = this.state.allData;
 
-    if (this.state.tags.length == 0) {
+    // Si no hay tags en el array, setea la data 
+    if (this.state.tags.length === 0) {
       this.setState({
         dataFilter: this.state.allData,
       });
     } else {
+      // si los tags cambian filtra el tags y lo incluye
       const result = currentAllData.filter((element) => {
         return this.state.tags.includes(element.name);
       });
@@ -118,6 +121,9 @@ class Home extends Component {
     return (
       <>
         <NavBar />
+        <div className='container'>
+
+        
         <div className="container-texto">
           <h1 className="title">Encuentra tu mascota ideal aquí</h1>
           <p className="titletwo">La que haga mach con tu personalidad!!!</p>
@@ -137,7 +143,7 @@ class Home extends Component {
                   marginTop: 5,
                 }}
               >
-                <img className="buscar" src={buscar} />
+                <img alt='search'className="buscar" src={buscar} />
                 <input
                   className="Search"
                   type="search"
@@ -176,7 +182,7 @@ class Home extends Component {
                   padding: 5,
                   marginTop: 5,
                 }}>
-                <img className="buscar" src={buscar} />
+                <img alt='search' className="buscar" src={buscar} />
                 <input
                   className="Search"
                   type="search"
@@ -206,14 +212,16 @@ class Home extends Component {
             <div className="DogsContainer">
               {this.state.dataFilter.map((item) => {
                 return (
-                  <div className="card-dogs">
-                    {item.img == "B" ? (
+                  <div key={item} className="card-dogs">
+                    {item.img === "B" ? (
                       <img
+                        alt='random'
                         style={{ width: "110px", height: "110px" }}
                         src={random}
                       />
                     ) : (
                       <img
+                        alt='dogs'
                         style={{ width: "110px", height: "110px" }}
                         src={item.img}
                       />
@@ -224,6 +232,7 @@ class Home extends Component {
               })}
             </div>
           </div>
+        </div>
         </div>
       </>
     );
